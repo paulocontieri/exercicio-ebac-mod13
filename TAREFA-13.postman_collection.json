@@ -1,0 +1,284 @@
+{
+	"info": {
+		"_postman_id": "60d42892-842f-408f-8904-e4b8cae42408",
+		"name": "TAREFA-13",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26013844"
+	},
+	"item": [
+		{
+			"name": "USUARIOS",
+			"item": [
+				{
+					"name": "GET-USUARIO-TRUE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://serverest.dev/usuarios/fqUUyM6ypyUdXuml",
+							"protocol": "https",
+							"host": [
+								"serverest",
+								"dev"
+							],
+							"path": [
+								"usuarios",
+								"fqUUyM6ypyUdXuml"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-USUARIO-FALSE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://serverest.dev/usuarios/WjwMQy4t5a8rhBYq",
+							"protocol": "https",
+							"host": [
+								"serverest",
+								"dev"
+							],
+							"path": [
+								"usuarios",
+								"WjwMQy4t5a8rhBYq"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST-USUARIO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Paulo Contieri\",\r\n  \"email\": \"paulocontieri@outlook.com\",\r\n  \"password\": \"teste\",\r\n  \"administrador\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://serverest.dev/usuarios",
+							"protocol": "https",
+							"host": [
+								"serverest",
+								"dev"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST-LOGIN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const resposta = pm.response.json();\r",
+									"pm.globals.set(\"token\", resposta.authorization);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"paulocontieri@outlook.com\",\r\n    \"password\": \"teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://serverest.dev/login",
+							"protocol": "https",
+							"host": [
+								"serverest",
+								"dev"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE-USUARIO",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://serverest.dev/usuarios/02RrYUW7XaVNZ7AQ",
+							"protocol": "https",
+							"host": [
+								"serverest",
+								"dev"
+							],
+							"path": [
+								"usuarios",
+								"02RrYUW7XaVNZ7AQ"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT-USUARIO-TRUE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Paulo Contieri\",\r\n    \"email\": \"paulocontieri@outlook.com\",\r\n    \"password\": \"teste@teste\",\r\n    \"administrador\": \"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://serverest.dev/usuarios/kfEePTZyXEwHT7E6",
+							"protocol": "https",
+							"host": [
+								"serverest",
+								"dev"
+							],
+							"path": [
+								"usuarios",
+								"kfEePTZyXEwHT7E6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT-USUARIO-FALSE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://serverest.dev/usuarios/kfEePTZyXEwHT7E5",
+							"protocol": "https",
+							"host": [
+								"serverest",
+								"dev"
+							],
+							"path": [
+								"usuarios",
+								"kfEePTZyXEwHT7E5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PRODUTOS",
+			"item": [
+				{
+					"name": "GET-PRODUTOS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://serverest.dev/produtos",
+							"protocol": "https",
+							"host": [
+								"serverest",
+								"dev"
+							],
+							"path": [
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST-PRODUTO-TRUE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Notebook Dell\",\r\n  \"preco\": 4600,\r\n  \"descricao\": \"Notebook\",\r\n  \"quantidade\": 800\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://serverest.dev/produtos",
+							"protocol": "https",
+							"host": [
+								"serverest",
+								"dev"
+							],
+							"path": [
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST-PRODUTO-FALSE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Notebook Dell\",\r\n  \"preco\": 4600,\r\n  \"descricao\": \"Notebook\",\r\n  \"quantidade\": 800\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://serverest.dev/produtos",
+							"protocol": "https",
+							"host": [
+								"serverest",
+								"dev"
+							],
+							"path": [
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
